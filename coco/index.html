@@ -18,24 +18,43 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
 
     <!-- Replace this with your image. Make sure CORS settings allow reading the image! -->
-    <img id="img" crossorigin="anonymous"
-        src="https://cdn.glitch.com/74418d0b-3465-49a2-8c71-a721b7734473%2Fdoggo.jpg?v=1592266725716" />
+    https://cdn.glitch.com/74418d0b-3465-49a2-8c71-a721b7734473%2Fdoggo.jpg?v=1592266725716
 
-    <!-- Place your code in the script tag below. You can also use an external .js file -->
-    <script>
-        // Notice there is no 'import' statement. 'cocoSsd' and 'tf' is
-        // available on the index-page because of the script tag above.
+    <form>
+        <input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size="30"
+            required />
+        <input type="button" id="get" value="get" />
+        <input type="button" id="classify" value="classify" />
+    </form>
 
-        const img = document.getElementById('img');
+    <script type="text/javascript">
+        document.getElementById('get').onclick = function () {
+            var val = document.getElementById('url').value,
+                src = val,
+                img = document.createElement('img');
 
-        // Load the model.
-        cocoSsd.load().then(model => {
-            // detect objects in the image.
-            model.detect(img).then(predictions => {
-                console.log('Predictions: ', predictions);
-            });
-        });
+            img.src = src;
+            img.id = "srcImg";
+            document.body.appendChild(img);
+        }
     </script>
+    <script>
+        document.getElementById('classify').onclick = function () {
+            // Notice there is no 'import' statement. 'cocoSsd' and 'tf' is
+            // available on the index-page because of the script tag above.
+
+            const img = document.getElementById('srcImg');
+
+            // Load the model.
+            cocoSsd.load().then(model => {
+                // detect objects in the image.
+                model.detect(img).then(predictions => {
+                    console.log('Predictions: ', predictions);
+                });
+            });
+        }
+    </script>
+
 </body>
 
 </html>
