@@ -29,24 +29,21 @@
 
     <script type="text/javascript">
         document.getElementById('get').onclick = function () {
-            var url = document.getElementById('url').value,
-                src = url,
-                img = document.createElement('img');
-
-            img.src = src;
-            img.id = "srcImg";
+            var img = document.createElement('img');
+            img.src = document.getElementById('url').value;
+            img.id = 'id';
             img.crossorigin = "anonymous";
             document.body.appendChild(img);
 
             // Notice there is no 'import' statement. 'cocoSsd' and 'tf' is
             // available on the index-page because of the script tag above.
 
-            //const img = document.getElementById('srcImg');
+            const data = document.getElementById('id');
 
             // Load the model.
             cocoSsd.load().then(model => {
                 // detect objects in the image.
-                model.detect(img).then(predictions => {
+                model.detect(data).then(predictions => {
                     console.log('Predictions: ', predictions);
                 });
             });
