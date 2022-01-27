@@ -16,8 +16,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
 
     <form>
-        <input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size="30" required>
-        />
+        <input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size="30"
+            required />
         <input type="button" id="get" value="get" />
         <input type="button" id="classify" value="classify" />
     </form>
@@ -39,6 +39,7 @@
     <script>
         document.getElementById('classify').onclick = function () {
 
+            <img id="img" src="./cat.jpg" />
             // Notice there is no 'import' statement. 'cocoSsd' and 'tf' is
             // available on the index-page because of the script tag above.
 
