@@ -34,9 +34,30 @@
             document.body.appendChild(img);
         }
     </script>
+    <!-- Load TensorFlow.js. This is required to use coco-ssd model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+    <!-- Load the coco-ssd model. -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
 
-    <img id="input"
+    <!-- Replace this with your image. Make sure CORS settings allow reading the image! -->
+    <img id="img"
         src="https://i.cbc.ca/1.5256404.1566499707!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/cat-behaviour.jpg" />
+
+    <!-- Place your code in the script tag below. You can also use an external .js file -->
+    <script>
+        // Notice there is no 'import' statement. 'cocoSsd' and 'tf' is
+        // available on the index-page because of the script tag above.
+
+        const img = document.getElementById('img');
+
+        // Load the model.
+        cocoSsd.load().then(model => {
+            // detect objects in the image.
+            model.detect(img).then(predictions => {
+                console.log('Predictions: ', predictions);
+            });
+        });
+    </script>
 
     <!-- Place your code in the script tag below. You can also use an external .js file -->
     <script>
