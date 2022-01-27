@@ -2,7 +2,7 @@
 
 * Access Webcam
   * [Example](https://laynr.github.io/stunning-guide/webcam)
-  * [Tutorial](https://medium.com/swlh/how-to-access-webcam-and-take-picture-with-javascript-b9116a983d78)
+  * [Tutorial](https://www.kirupa.com/html5/accessing_your_webcam_in_html5.htm)
 
 * MNIST tenserflow.js
   * [Example](https://laynr.github.io/stunning-guide/mnist/)
