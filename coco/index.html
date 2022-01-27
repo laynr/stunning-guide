@@ -29,13 +29,13 @@
 
     <script type="text/javascript">
         document.getElementById('get').onclick = function () {
-            var val = document.getElementById('url').value,
-                src = val,
-            const img = document.createElement('img');
+            var url = document.getElementById('url').value,
+                src = url,
+                img = document.createElement('img');
 
             img.src = src;
             img.id = "srcImg";
-            crossorigin = "anonymous";
+            img.crossorigin = "anonymous";
             document.body.appendChild(img);
 
             // Notice there is no 'import' statement. 'cocoSsd' and 'tf' is
